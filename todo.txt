@@ -1,0 +1,271 @@
+SystemMonitorX - TO-DO Liste
+================================
+
+🎯 PROJEKT: SystemMonitorX - Modernes System-Monitoring-Tool
+📅 ERSTELLT: [Datum]
+👤 ENTWICKLER: [Name]
+
+================================================================================
+PHASE 1: PROJEKTAUFBAU & DESIGN-SYSTEM
+================================================================================
+
+A. [ ] Projektstruktur erstellen
+   - [ ] main.py (Hauptanwendung)
+   - [ ] widgets/ (Desktop-Widgets)
+   - [ ] utils/ (Hilfsfunktionen)
+   - [ ] config/ (Konfiguration)
+   - [ ] assets/ (Icons, Bilder)
+
+B. [ ] requirements.txt mit Dependencies
+   - [ ] PyQt6 (GUI Framework)
+   - [ ] psutil (System-Monitoring)
+   - [ ] matplotlib (Graphen)
+   - [ ] pillow (Bildverarbeitung)
+   - [ ] pystray (System-Tray)
+
+C. [ ] Theme-System implementieren
+   - [ ] Dark Mode: Background #141414
+   - [ ] Accent: #4a307d
+   - [ ] Text: #f2ecfa
+
+D. [ ] Abgerundete Ecken für alle Fenster
+   - [ ] Dashboard-Hauptfenster
+   - [ ] Desktop-Widgets
+   - [ ] Dialoge und Popups
+
+E. [ ] PyQt6 mit Dark Mode Setup
+   - [ ] Theme-Konfiguration
+   - [ ] Farb-Palette definieren
+
+================================================================================
+PHASE 2: HAUPTFENSTER (DASHBOARD)
+================================================================================
+
+F. [ ] Dashboard-Hauptfenster erstellen
+   - [ ] Abgerundete Ecken
+   - [ ] Dark Mode Hintergrund
+   - [ ] Responsive Layout
+
+G. [ ] Header-Bereich
+   - [ ] Titel "SystemMonitorX"
+   - [ ] Logo/Icon
+   - [ ] Minimieren/Maximieren/Schließen
+
+H. [ ] 4 Hauptkarten-Layout
+   - [ ] CPU-Karte
+   - [ ] RAM-Karte
+   - [ ] Disk-Karte
+   - [ ] System-Karte
+
+I. [ ] Progress-Bars
+   - [ ] Accent-Farbe (#4a307d)
+   - [ ] Prozentanzeige
+   - [ ] GB-Werte (RAM/Disk)
+
+J. [ ] Button-Bereich
+   - [ ] Widget öffnen/schließen
+   - [ ] Logging starten/stoppen
+   - [ ] Graphen öffnen
+   - [ ] Einstellungen
+
+================================================================================
+PHASE 3: SYSTEM-MONITORING
+================================================================================
+
+K. [ ] psutil Integration
+   - [ ] System-Daten sammeln
+   - [ ] CPU-Informationen
+   - [ ] RAM-Informationen
+   - [ ] Disk-Informationen
+
+L. [ ] Monitoring-Thread
+   - [ ] Separate Thread für Updates
+   - [ ] Jede Sekunde Updates
+   - [ ] Thread-Sicherheit
+
+M. [ ] CPU-Monitoring
+   - [ ] Auslastung in Prozent
+   - [ ] Anzahl der Kerne
+   - [ ] Frequenz (GHz)
+   - [ ] Progress-Bar
+
+N. [ ] RAM-Monitoring
+   - [ ] Auslastung in Prozent
+   - [ ] Verwendeter RAM (GB)
+   - [ ] Gesamter RAM (GB)
+   - [ ] Progress-Bar
+
+O. [ ] Disk-Monitoring
+   - [ ] Auslastung in Prozent
+   - [ ] Verwendeter Speicher (GB)
+   - [ ] Gesamter Speicher (GB)
+   - [ ] Progress-Bar
+
+P. [ ] System-Informationen
+   - [ ] Betriebssystem
+   - [ ] Benutzername
+   - [ ] Online-Status
+   - [ ] Update-Frequenz
+
+================================================================================
+PHASE 4: DESKTOP-WIDGETS
+================================================================================
+
+Q. [ ] Widget-Basis-Klasse
+   - [ ] Transparenter Hintergrund
+   - [ ] Abgerundete Ecken
+   - [ ] 320x110px Größe
+   - [ ] Glasmorphismus-Effekt
+
+R. [ ] 4 Widget-Typen
+   - [ ] CPU-Widget
+   - [ ] RAM-Widget
+   - [ ] Disk-Widget
+   - [ ] System-Widget
+
+S. [ ] Glasmorphismus-Effekt
+   - [ ] Transparenz
+   - [ ] Blur-Effekt
+   - [ ] Moderne Optik
+
+T. [ ] Drag & Drop
+   - [ ] Frei verschiebbar
+   - [ ] Nicht always on top
+   - [ ] Positionsspeicherung
+
+U. [ ] Close-Button
+   - [ ] Lila Farbe (#4a307d)
+   - [ ] × Symbol
+   - [ ] Hover-Effekt
+
+V. [ ] Widget-Positionsspeicherung
+   - [ ] JSON-Konfiguration
+   - [ ] Automatisches Speichern
+   - [ ] Beim Start wiederherstellen
+
+================================================================================
+PHASE 5: DATEN-LOGGING
+================================================================================
+
+W. [ ] CSV-Export System
+   - [ ] Timestamps
+   - [ ] Alle System-Daten
+   - [ ] Automatisches Speichern
+
+X. [ ] JSON-Export System
+   - [ ] Strukturierte Daten
+   - [ ] Metadaten
+   - [ ] Konfiguration
+
+Y. [ ] Buffer-System
+   - [ ] Effiziente Speicherung
+   - [ ] Maximal 10 Log-Dateien
+   - [ ] Alte Dateien überschreiben
+
+Z. [ ] Automatisches Speichern
+   - [ ] Alle 60 Sekunden
+   - [ ] Hintergrund-Thread
+   - [ ] Error-Handling
+
+AA. [ ] Start/Stop Logging
+   - [ ] Dashboard-Buttons
+   - [ ] Status-Anzeige
+   - [ ] Konfiguration
+
+================================================================================
+PHASE 6: VISUALISIERUNG
+================================================================================
+
+BB. [ ] Matplotlib-Graphen
+   - [ ] Dark Mode Styling
+   - [ ] Theme-Farben
+   - [ ] Responsive Design
+
+CC. [ ] 4 Graph-Typen
+   - [ ] System-Übersicht
+   - [ ] CPU-Graph
+   - [ ] RAM-Graph
+   - [ ] Disk-Graph
+
+DD. [ ] Farben anpassen
+   - [ ] #4a307d für Linien
+   - [ ] #141414 für Hintergrund
+   - [ ] #f2ecfa für Text
+
+EE. [ ] Zoom und Navigation
+   - [ ] Interaktive Graphen
+   - [ ] Zeitachse
+   - [ ] Werte-Anzeige
+
+================================================================================
+PHASE 7: ERWEITERTE FEATURES
+================================================================================
+
+FF. [ ] System-Tray Integration
+   - [ ] Minimierung in Tray
+   - [ ] Dynamische Icons
+   - [ ] Kontext-Menü
+
+GG. [ ] Konfiguration Export/Import
+   - [ ] JSON-Format
+   - [ ] Widget-Positionen
+   - [ ] Theme-Einstellungen
+
+HH. [ ] Threading
+   - [ ] UI-Thread
+   - [ ] Monitoring-Thread
+   - [ ] Logging-Thread
+
+II. [ ] Error-Handling
+   - [ ] Logging
+   - [ ] Benutzerfreundliche Fehler
+   - [ ] Recovery-Mechanismen
+
+================================================================================
+PHASE 8: FINALISIERUNG
+================================================================================
+
+JJ. [ ] .exe Build
+   - [ ] PyInstaller
+   - [ ] Portable Konfiguration
+   - [ ] Keine Admin-Rechte nötig
+
+KK. [ ] Testing
+   - [ ] Verschiedene Windows-Versionen
+   - [ ] Verschiedene Hardware
+   - [ ] Performance-Tests
+
+LL. [ ] Dokumentation
+   - [ ] README.md
+   - [ ] Installationsanleitung
+   - [ ] Benutzerhandbuch
+
+MM. [ ] Release
+   - [ ] Version 1.0
+   - [ ] Download-Link
+   - [ ] Changelog
+
+================================================================================
+NOTIZEN & IDEEN
+================================================================================
+
+- Inspiration: Rainmeter, JaxCore, Waybar, BeWidgets, UWidgets
+- Design: Glasmorphismus, abgerundete Ecken, Transparenz
+- Performance: Threading für flüssige UI
+- Portabilität: .exe ohne Admin-Rechte
+- Modularität: Erweiterbare Architektur
+
+================================================================================
+FORTSCHRITT
+================================================================================
+
+Phase 1: [ ] [ ] [ ] [ ] [ ] (0/5)
+Phase 2: [ ] [ ] [ ] [ ] [ ] (0/5)
+Phase 3: [ ] [ ] [ ] [ ] [ ] [ ] (0/6)
+Phase 4: [ ] [ ] [ ] [ ] [ ] [ ] (0/6)
+Phase 5: [ ] [ ] [ ] [ ] [ ] [ ] (0/6)
+Phase 6: [ ] [ ] [ ] [ ] [ ] (0/5)
+Phase 7: [ ] [ ] [ ] [ ] (0/4)
+Phase 8: [ ] [ ] [ ] [ ] (0/4)
+
+GESAMT: 0/41 Aufgaben erledigt 

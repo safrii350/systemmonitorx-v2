@@ -1,0 +1,56 @@
+# SystemMonitorX - Dependencies
+# Python-Pakete für System-Monitoring und GUI
+
+# GUI Framework - Moderne Qt-Bibliothek
+PyQt6>=6.5.0
+
+# System-Monitoring - Hardware-Informationen
+psutil>=5.9.0
+
+# Graphen und Visualisierung
+matplotlib>=3.7.0
+
+# Bildverarbeitung und Icons
+Pillow>=10.0.0
+
+# System-Tray Integration
+pystray>=0.19.0
+
+# Zusätzliche Utilities
+# (Optional - für erweiterte Features)
+
+# JSON-Verarbeitung (in Python eingebaut, aber für Vollständigkeit)
+# json - bereits in Python enthalten
+
+# CSV-Verarbeitung (in Python eingebaut)
+# csv - bereits in Python enthalten
+
+# Threading (in Python eingebaut)
+# threading - bereits in Python enthalten
+
+# Datum/Zeit (in Python eingebaut)
+# datetime - bereits in Python enthalten
+
+# Betriebssystem-Funktionen (in Python eingebaut)
+# os, platform - bereits in Python enthalten
+
+# =============================================================================
+# INSTALLATION:
+# pip install -r requirements.txt
+# =============================================================================
+
+# =============================================================================
+# VERSIONEN:
+# - PyQt6: Moderne GUI mit Dark Mode Support und Desktop-Widgets
+# - psutil: System-Monitoring (CPU, RAM, Disk, Network)
+# - matplotlib: Graphen und Visualisierung
+# - Pillow: Bildverarbeitung für Icons
+# - pystray: System-Tray Integration
+# =============================================================================
+
+# =============================================================================
+# HINWEISE:
+# - Alle Pakete sind Windows-kompatibel
+# - PyInstaller wird später für .exe Build benötigt
+# - Keine Admin-Rechte erforderlich für Installation
+# ============================================================================= 

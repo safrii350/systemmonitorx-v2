@@ -1,0 +1,290 @@
+SystemMonitorX - Konzept und Funktionalität
+============================================
+
+🎯 HAUPTZWECK
+==============
+SystemMonitorX ist ein modernes System-Monitoring-Tool, das in Echtzeit die Leistung 
+deines Computers überwacht und die Daten sowohl im Dashboard als auch in Desktop-Widgets anzeigt.
+
+📊 DASHBOARD-MONITORING
+=======================
+
+Live-Systemdaten
+----------------
+Das Dashboard zeigt 4 Hauptbereiche in Echtzeit an:
+
+1. CPU-Monitoring
+   - CPU-Auslastung in Prozent
+   - Anzahl der Kerne
+   - Frequenz (GHz)
+   - Progress-Bar für visuelle Darstellung
+
+2. RAM-Monitoring
+   - Arbeitsspeicher-Auslastung in Prozent
+   - Verwendeter RAM in GB
+   - Gesamter RAM in GB
+   - Progress-Bar für visuelle Darstellung
+
+3. Festplatten-Monitoring
+   - Festplatten-Auslastung in Prozent
+   - Verwendeter Speicherplatz in GB
+   - Gesamter Speicherplatz in GB
+   - Progress-Bar für visuelle Darstellung
+
+4. System-Informationen
+   - Betriebssystem (Windows 11, etc.)
+   - Benutzername
+   - Online-Status
+   - Update-Frequenz
+
+Update-Frequenz
+---------------
+- Alle Daten werden jede Sekunde aktualisiert
+- Echtzeit-Updates ohne Verzögerung
+- Threading für flüssige UI-Performance
+
+🖥️ DESKTOP-WIDGETS
+===================
+
+Floating Widgets
+----------------
+- Unabhängige Fenster die auf dem Desktop schweben
+- Immer im Vordergrund (topmost)
+- Drag & Drop - können frei verschoben werden
+- Runde Ecken mit modernem Design (PyQt6 ermöglicht dies)
+- Transparente Hintergründe mit Glasmorphismus-Effekt
+- Eigene Close-Buttons mit lila Farbe (#4a307d)
+
+Widget-Typen
+------------
+1. CPU-Widget: Zeigt CPU-Auslastung mit Progress-Bar
+2. RAM-Widget: Zeigt RAM-Auslastung mit GB-Anzeige
+3. Disk-Widget: Zeigt Festplatten-Auslastung
+4. System-Widget: Zeigt System-Informationen
+
+Widget-Features
+---------------
+- 320x110 Pixel Größe (einheitlich)
+- Lila Close-Button (×) zum Schließen (PyQt6 ermöglicht eigene Buttons)
+- Automatische Positionsspeicherung - Widgets bleiben wo du sie hinverschiebst
+- Live-Updates jede Sekunde
+- Dark/Light Mode Unterstützung
+- Abgerundete Ecken durch PyQt6 Styling
+
+📈 DATEN-LOGGING
+================
+
+Logging-System
+--------------
+- CSV-Export: Für Tabellenkalkulation (Excel)
+- JSON-Export: Für strukturierte Daten
+- Beide Formate gleichzeitig möglich
+- Automatische Timestamps für jeden Eintrag
+
+Logging-Daten
+-------------
+- CPU-Percent, CPU-Count
+- Memory-Percent, Memory-Used-GB, Memory-Total-GB
+- Disk-Percent, Disk-Used-GB, Disk-Total-GB
+- Platform, Machine-Info
+
+Logging-Features
+----------------
+- Buffer-System für effiziente Speicherung
+- Automatisches Speichern alle 60 Sekunden
+- Maximal 10 Log-Dateien (alte werden überschrieben)
+- Start/Stop-Funktionen
+
+📊 GRAPHEN UND VISUALISIERUNG
+=============================
+
+Matplotlib-Graphen
+------------------
+1. System-Übersicht: Alle Daten in einem Graphen
+2. CPU-Graph: Detaillierte CPU-Auslastung über Zeit
+3. RAM-Graph: RAM-Auslastung und GB-Verbrauch
+4. Disk-Graph: Festplatten-Auslastung über Zeit
+
+Graph-Features
+--------------
+- Dark Mode Styling
+- Zeitachse mit automatischer Formatierung
+- Farbige Linien für verschiedene Werte
+- Zoom und Navigation möglich
+
+⚙️ KONFIGURATION
+================
+
+JSON-basierte Konfiguration
+---------------------------
+- App-Einstellungen: Theme, Transparenz, Fenstergröße
+- Widget-Positionen: Automatisch gespeichert
+- Logging-Einstellungen: Buffer-Größe, Intervalle
+- Export/Import von Konfigurationen
+
+Theme-System
+------------
+Dark Mode:
+- Background: #141414
+- Accent: #4a307d
+- Text: #f2ecfa
+
+Light Mode (zukünftig):
+- Background: #ffffff
+- Accent: #6c3dd9
+- Text: #141414
+
+Design-Features:
+- Glasmorphismus-Effekte mit Transparenz
+- Icon-Support für Dark/Light Mode
+- Abgerundete Ecken für alle Fenster (PyQt6 ermöglicht dies)
+- Eigene Window-Frames ohne Standard-Titelleiste
+
+🔧 SYSTEM-TRAY INTEGRATION
+==========================
+
+Tray-Features
+-------------
+- Minimierung in System-Tray
+- Kontext-Menü für Schnellzugriff
+- Dynamische Icons mit CPU/RAM-Auslastung
+- Hintergrund-Betrieb möglich
+
+🎨 UI/UX DESIGN
+================
+
+PyQt6 Framework
+---------------
+- Moderne Buttons mit Gradient-Effekten
+- Glasmorphismus-Frames mit Blur-Effekt
+- Responsive Layout mit Grid-System
+- Emoji-Icons für bessere UX
+- Desktop-Widgets mit abgerundeten Ecken
+- Eigene Close-Buttons möglich
+
+Dashboard-Layout
+----------------
+- Scrollbar-Container für responsive Darstellung
+- 2x2 Grid für System-Karten
+- Button-Reihen für Widgets, Logging, Graphen
+- Moderne Typografie mit Consolas-Font
+
+🏗️ TECHNISCHE ARCHITEKTUR
+==========================
+
+Modulare Struktur
+-----------------
+Threading:
+- Hauptthread: UI und Event-Handling
+- Monitoring-Thread: System-Daten sammeln
+- Widget-Threads: Separate Updates für Widgets
+- Logging-Thread: Asynchrones Daten-Logging
+
+Dependencies
+------------
+- psutil: System-Monitoring
+- PyQt6: Moderne GUI mit Desktop-Widgets
+- matplotlib: Graphen und Visualisierung
+- PIL/Pillow: Icon-Verarbeitung
+- pystray: System-Tray Integration
+
+🎯 HAUPTFUNKTIONEN
+===================
+
+1. Echtzeit-Monitoring von CPU, RAM, Disk, System
+2. Desktop-Widgets mit Drag & Drop
+3. Daten-Logging in CSV/JSON
+4. Matplotlib-Graphen für Visualisierung
+5. System-Tray Integration
+6. Theme-System (Dark/Light Mode)
+7. Konfiguration Export/Import
+8. Responsive UI mit modernem Design
+
+🚀 PORTABILITÄT
+===============
+
+Ausführbare Datei
+-----------------
+- .exe Build mit PyInstaller
+- Läuft auf jedem Windows PC
+- Keine Admin-Rechte erforderlich
+- Portable Konfiguration
+
+Inspiration
+-----------
+- Rainmeter: Desktop-Widgets
+- JaxCore: Moderne UI
+- Waybar: System-Monitoring
+- BeWidgets: Widget-System
+- UWidgets: Desktop-Integration
+
+🎨 DESIGN-PRINZIPIEN
+====================
+
+1. Glasmorphismus: Transparente, verschwommene Hintergründe
+2. Abgerundete Ecken: Weiche, moderne Optik
+3. Dark Mode First: Primär Dark Mode, Light Mode optional
+4. Minimalismus: Klare, übersichtliche Darstellung
+5. Performance: Threading für flüssige UI
+6. Modularität: Erweiterbare Architektur
+
+📱 WIDGET-SPEZIFIKATIONEN
+==========================
+
+Größe: 320x110 Pixel
+Form: Rechteckig mit abgerundeten Ecken (PyQt6 Styling)
+Hintergrund: Transparent mit Glasmorphismus-Effekt
+Schriftart: Consolas
+Farben: Dark Mode Theme (#141414, #4a307d, #f2ecfa)
+Position: Frei verschiebbar, nicht always on top
+Updates: Jede Sekunde
+Speicherung: Automatische Positionsspeicherung
+Eigene Close-Buttons: Lila (#4a307d) mit × Symbol
+
+🔄 UPDATE-ZYKLUS
+================
+
+Dashboard: Jede Sekunde
+Widgets: Jede Sekunde
+Logging: Alle 60 Sekunden
+Graphen: Jede 5 Sekunden
+System-Tray: Jede 10 Sekunden
+
+📁 DATEISTRUKTUR
+================
+
+SystemMonitorX/
+├── main.py              # Hauptanwendung
+├── requirements.txt      # Dependencies
+├── config/
+│   ├── settings.json    # App-Konfiguration
+│   └── widgets.json     # Widget-Positionen
+├── widgets/
+│   ├── __init__.py
+│   ├── base_widget.py   # Basis-Widget-Klasse
+│   ├── cpu_widget.py    # CPU-Widget
+│   ├── ram_widget.py    # RAM-Widget
+│   ├── disk_widget.py   # Disk-Widget
+│   └── system_widget.py # System-Widget
+├── utils/
+│   ├── __init__.py
+│   ├── monitoring.py    # System-Monitoring
+│   ├── logging.py       # Daten-Logging
+│   └── config.py        # Konfigurations-Manager
+├── assets/
+│   ├── icons/           # Icons für Dark/Light Mode
+│   └── images/          # Bilder und Grafiken
+└── logs/                # Log-Dateien (CSV/JSON)
+
+🎯 ZIELSETZUNG
+==============
+
+Phase 1: Grundfunktionen (Dashboard + Monitoring)
+Phase 2: Desktop-Widgets
+Phase 3: Daten-Logging
+Phase 4: Visualisierung (Graphen)
+Phase 5: Erweiterte Features (System-Tray, Konfiguration)
+Phase 6: Finalisierung (.exe Build, Testing, Dokumentation)
+
+Das Projekt soll ein modernes, benutzerfreundliches System-Monitoring-Tool werden,
+das sowohl für technische Benutzer als auch für Einsteiger geeignet ist. 
