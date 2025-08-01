@@ -102,28 +102,26 @@ SystemMonitorX/
 
 ## 🚀 Installation
 
-### Voraussetzungen
-- Python 3.12 oder höher
-- Windows 10/11 (getestet)
+### Für Endbenutzer (Empfohlen)
+1. **SystemMonitorX.exe** (66.8 MB) aus dem [Releases](https://github.com/safrii350/systemmonitorx-v2/releases) herunterladen
+2. Doppelklick zum Starten - keine Installation erforderlich!
+3. Läuft auf jedem Windows PC ohne Admin-Rechte
 
-### Installation
-
+### Für Entwickler
 ```bash
 # Repository klonen
 git clone https://github.com/safrii350/systemmonitorx-v2.git
 cd systemmonitorx-v2
 
 # Dependencies installieren
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
 # Anwendung starten
 python main.py
-```
 
-### Portable Version
-1. Download der neuesten Release
-2. `SystemMonitorX.exe` ausführen
-3. Keine Installation erforderlich
+# Portable .exe erstellen
+python -m PyInstaller systemmonitorx.spec
+```
 
 ## 📖 Verwendung
 
