@@ -9,6 +9,7 @@ Version: 1.0.0
 """
 
 import pystray
+import os
 from PIL import Image, ImageDraw, ImageFont
 from PyQt6.QtWidgets import QApplication
 from PyQt6.QtCore import QTimer, pyqtSignal, QObject
@@ -94,7 +95,17 @@ class SystemTrayIcon(QObject):
         bg_color = (20, 20, 20, 200)  # Dark background
         draw.rounded_rectangle([(2, 2), (size-2, size-2)], radius=8, fill=bg_color)
         
-        # CPU-Auslastung als einfacher Balken statt Kreis
+        # Basis-Tray-Icon laden (falls vorhanden)
+        try:
+            base_icon_path = "assets/tray/tray-icon.png"
+            if os.path.exists(base_icon_path):
+                base_icon = Image.open(base_icon_path)
+                base_icon = base_icon.resize((size-10, size-10), Image.Resampling.LANCZOS)
+                image.paste(base_icon, (5, 5), base_icon)
+        except Exception as e:
+            print(f"Fehler beim Laden des Basis-Tray-Icons: {e}")
+        
+        # CPU-Auslastung als einfacher Balken
         center = size // 2
         bar_width = size - 20
         bar_height = 8

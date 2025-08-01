@@ -26,7 +26,7 @@ class DiskWidget(BaseWidget):
         super().__init__(
             widget_type="disk",
             title="Festplatte",
-            icon="💿"
+            icon_path="assets/widgets/disk_widget.png"
         )
         
         # Widget-spezifische UI

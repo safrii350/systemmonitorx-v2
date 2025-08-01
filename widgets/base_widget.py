@@ -49,11 +49,11 @@ class BaseWidget(QWidget):
     # Signal für Widget-Schließung
     widget_closed = pyqtSignal(str)
     
-    def __init__(self, widget_type, title, icon):
+    def __init__(self, widget_type, title, icon_path):
         super().__init__()
         self.widget_type = widget_type
         self.title = title
-        self.icon = icon
+        self.icon_path = icon_path
         
         # Widget-Eigenschaften
         self.setFixedSize(320, 110)
@@ -88,8 +88,19 @@ class BaseWidget(QWidget):
         
         # Icon und Titel
         title_layout = QHBoxLayout()
-        icon_label = QLabel(self.icon)
-        icon_label.setStyleSheet("font-size: 16px;")
+        icon_label = QLabel()
+        icon_label.setFixedSize(24, 24)
+        
+        # Icon laden und skalieren
+        if os.path.exists(self.icon_path):
+            from PyQt6.QtGui import QPixmap
+            pixmap = QPixmap(self.icon_path)
+            scaled_pixmap = pixmap.scaled(24, 24, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
+            icon_label.setPixmap(scaled_pixmap)
+        else:
+            # Fallback: Text-Icon
+            icon_label.setStyleSheet("font-size: 16px;")
+            icon_label.setText("📊")
         
         title_label = QLabel(self.title)
         title_label.setStyleSheet("""

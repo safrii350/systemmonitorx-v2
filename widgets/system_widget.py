@@ -28,7 +28,7 @@ class SystemWidget(BaseWidget):
         super().__init__(
             widget_type="system",
             title="System",
-            icon="⚙️"
+            icon_path="assets/widgets/system_widget.png"
         )
         
         # Widget-spezifische UI

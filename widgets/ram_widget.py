@@ -26,7 +26,7 @@ class RAMWidget(BaseWidget):
         super().__init__(
             widget_type="ram",
             title="RAM",
-            icon="💾"
+            icon_path="assets/widgets/ram_widget.png"
         )
         
         # Widget-spezifische UI

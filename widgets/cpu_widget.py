@@ -26,7 +26,7 @@ class CPUWidget(BaseWidget):
         super().__init__(
             widget_type="cpu",
             title="CPU",
-            icon="🖥️"
+            icon_path="assets/widgets/cpu_widget.png"
         )
         
         # Widget-spezifische UI

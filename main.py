@@ -199,24 +199,24 @@ class SystemMonitorX(QMainWindow):
         cards_layout.setSpacing(15)
         
         # CPU-Karte
-        self.cpu_card = self.create_monitoring_card("CPU", "🖥️")
+        self.cpu_card = self.create_monitoring_card("CPU", "assets/icons/dashboard/cpu.png")
         cards_layout.addWidget(self.cpu_card, 0, 0)
         
         # RAM-Karte
-        self.ram_card = self.create_monitoring_card("RAM", "💾")
+        self.ram_card = self.create_monitoring_card("RAM", "assets/icons/dashboard/ram.png")
         cards_layout.addWidget(self.ram_card, 0, 1)
         
         # Disk-Karte
-        self.disk_card = self.create_monitoring_card("Festplatte", "💿")
+        self.disk_card = self.create_monitoring_card("Festplatte", "assets/icons/dashboard/disk.png")
         cards_layout.addWidget(self.disk_card, 1, 0)
         
         # System-Karte
-        self.system_card = self.create_monitoring_card("System", "⚙️")
+        self.system_card = self.create_monitoring_card("System", "assets/icons/dashboard/system.png")
         cards_layout.addWidget(self.system_card, 1, 1)
         
         parent_layout.addWidget(cards_frame)
         
-    def create_monitoring_card(self, title, icon):
+    def create_monitoring_card(self, title, icon_path):
         """Einzelne Monitoring-Karte erstellen"""
         card = QFrame()
         card.setMinimumHeight(150)
@@ -226,8 +226,19 @@ class SystemMonitorX(QMainWindow):
         
         # Titel mit Icon
         title_layout = QHBoxLayout()
-        icon_label = QLabel(icon)
-        icon_label.setStyleSheet("font-size: 20px;")
+        icon_label = QLabel()
+        icon_label.setFixedSize(32, 32)
+        
+        # Icon laden und skalieren
+        if os.path.exists(icon_path):
+            pixmap = QPixmap(icon_path)
+            scaled_pixmap = pixmap.scaled(32, 32, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
+            icon_label.setPixmap(scaled_pixmap)
+        else:
+            # Fallback: Text-Icon
+            icon_label.setStyleSheet("font-size: 20px;")
+            icon_label.setText("📊")
+        
         title_label = QLabel(title)
         title_label.setStyleSheet("""
             font-size: 16px;
@@ -272,19 +283,23 @@ class SystemMonitorX(QMainWindow):
         button_layout = QHBoxLayout(button_frame)
         
         # Widget-Button
-        widget_button = QPushButton("🖥️ Desktop-Widgets")
+        widget_button = QPushButton("Desktop-Widgets")
+        widget_button.setIcon(QIcon("assets/icons/buttons/widgets.png"))
         widget_button.clicked.connect(self.open_widgets)
         
         # Logging-Button
-        logging_button = QPushButton("📊 Daten-Logging")
+        logging_button = QPushButton("Daten-Logging")
+        logging_button.setIcon(QIcon("assets/icons/buttons/logging.png"))
         logging_button.clicked.connect(self.toggle_logging)
         
         # Graphen-Button
-        graphs_button = QPushButton("📈 Graphen")
+        graphs_button = QPushButton("Graphen")
+        graphs_button.setIcon(QIcon("assets/icons/buttons/graphs.png"))
         graphs_button.clicked.connect(self.open_graphs)
         
         # Einstellungen-Button
-        settings_button = QPushButton("⚙️ Einstellungen")
+        settings_button = QPushButton("Einstellungen")
+        settings_button.setIcon(QIcon("assets/icons/buttons/settings.png"))
         settings_button.clicked.connect(self.open_settings)
         
         button_layout.addWidget(widget_button)
